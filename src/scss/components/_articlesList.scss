@@ -1,0 +1,13 @@
+@use '../utils/vars' as *;
+
+.results {
+  font-weight: 600;
+  border-bottom: 1px solid $color-border;
+  margin-bottom: 45px;
+}
+
+.articlesList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 45px;
+}

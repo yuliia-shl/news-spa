@@ -1,9 +1,12 @@
-import ArticleCard from "../ArticleCard/ArticleCard";
+import ArticleCard from '../ArticleCard/ArticleCard';
 
 const ArticlesList = () => {
   return (
     <>
-      <ArticleCard />
+      <div className="results">Results: 6</div>
+      <div className="articlesList">
+        <ArticleCard />
+      </div>
     </>
   );
 };

@@ -2,11 +2,12 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
+import { colors, shadows } from '../../theme/colors';
 
 const SearchInput = () => {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px', mb: 5 }}>
-      <label htmlFor="outlined-search" style={{ fontWeight: 600 }}>
+      <label htmlFor="outlined-search" className="semiBold">
         Filter by keywords
       </label>
       <TextField
@@ -17,10 +18,9 @@ const SearchInput = () => {
         sx={{
           width: '600px',
           '& .MuiOutlinedInput-root': {
-            border: '1px solid #eaeaea',
-            boxShadow: '0 8px 24px 0 rgba(0, 0, 0, 0.05)',
+            border: `1px solid ${colors.border}`,
+            boxShadow: shadows.default,
           },
-
           '& input::-webkit-search-cancel-button': {
             cursor: 'pointer',
           },
