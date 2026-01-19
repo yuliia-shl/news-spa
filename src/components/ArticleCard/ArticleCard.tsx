@@ -10,8 +10,9 @@ import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined
 import Box from '@mui/material/Box';
 import { colors, shadows } from '../../theme/colors';
 import { Link } from 'react-router-dom';
+import type { ArticleCardProps } from '../../types/article';
 
-const ArticleCard = () => {
+const ArticleCard = ({ article }: ArticleCardProps) => {
   return (
     <Card
       sx={{
@@ -20,30 +21,40 @@ const ArticleCard = () => {
         boxShadow: shadows.default,
       }}
     >
-      <CardActionArea component={Link} to="/article/:id">
+      <CardActionArea component={Link} to={`/article/:${article.id}`}>
         <CardMedia
           component="img"
           height="140"
-          image="/test.jpg"
+          image={article.imageUrl}
           alt="Article picture"
           sx={{ width: 400, height: 217, objectFit: 'cover' }}
         />
         <CardContent sx={{ padding: '24px 24px 0', mb: 1.5 }}>
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 1 }}>
-            <CalendarTodayOutlinedIcon sx={{ fontSize: 16, color: colors.primary60 }} />
-            <Typography sx={{ color: colors.primary60, fontSize: 14 }}>June 29th, 2021</Typography>
+            <CalendarTodayOutlinedIcon
+              sx={{ fontSize: 16, color: colors.primary60 }}
+            />
+            <Typography sx={{ color: colors.primary60, fontSize: 14 }}>
+              {article.publishedAt}
+            </Typography>
           </Box>
-          <Typography gutterBottom variant="h5" component="div" sx={{ mb: 2.5 }}>
-            The 2020 World's Most Valuable Brands
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ mb: 2.5 }}
+          >
+            {article.title}
           </Typography>
-          <Typography>
-            Non sed molestie tortor massa vitae in mattis. Eget vel consequat hendrerit commodo
-            libero aliquam. Urna arcu nunc tortor vitae pharetra...
-          </Typography>
+          <Typography>{article.summary}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ padding: '10px 24px 24px' }}>
-        <Button href="/article/:id" size="small" endIcon={<ArrowForwardIcon />}>
+        <Button
+          href={`/article/:${article.id}`}
+          size="small"
+          endIcon={<ArrowForwardIcon />}
+        >
           Read more
         </Button>
       </CardActions>
