@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { getArticles } from '../api/services';
 import type { ApiArticle, Article } from '../types/article';
 import { ArticlesContext } from '../hooks/useArticles';
+import { format } from 'date-fns';
 
 const adaptArticle = (api: ApiArticle): Article => ({
   id: api.id,
   title: api.title,
   summary: api.summary,
   imageUrl: api.image_url,
-  publishedAt: api.published_at,
+  publishedAt: format(new Date(api.published_at), 'MMMM do, yyyy'),
 });
 
 export const ArticlesProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -27,7 +28,7 @@ export const ArticlesProvider: React.FC<{ children: React.ReactNode }> = ({
         setArticles(data.results.map(adaptArticle));
         setTotal(data.count);
       } catch {
-        setError('Не вдалося завантажити статті');
+        setError('Unable to load articles. Try again later.');
       } finally {
         setLoading(false);
       }

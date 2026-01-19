@@ -13,23 +13,46 @@ import { Link } from 'react-router-dom';
 import type { ArticleCardProps } from '../../types/article';
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
+  const shortSummary =
+    article.summary.length > 100
+      ? article.summary.slice(0, 100) + '...'
+      : article.summary;
+
   return (
     <Card
       sx={{
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
         maxWidth: 400,
         backgroundColor: colors.white,
         boxShadow: shadows.default,
       }}
     >
-      <CardActionArea component={Link} to={`/article/:${article.id}`}>
+      <CardActionArea
+        component={Link}
+        to={`/article/${article.id}`}
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'flex-start',
+          flexGrow: 1,
+        }}
+      >
         <CardMedia
           component="img"
           height="140"
           image={article.imageUrl}
           alt="Article picture"
-          sx={{ width: 400, height: 217, objectFit: 'cover' }}
+          sx={{ width: '100%', height: 217, objectFit: 'cover' }}
         />
-        <CardContent sx={{ padding: '24px 24px 0', mb: 1.5 }}>
+        <CardContent
+          sx={{
+            padding: '24px 24px 0',
+            mb: 1.5,
+            flexGrow: 1,
+          }}
+        >
           <Box sx={{ display: 'flex', alignItems: 'center', mb: 3, gap: 1 }}>
             <CalendarTodayOutlinedIcon
               sx={{ fontSize: 16, color: colors.primary60 }}
@@ -39,19 +62,24 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
             </Typography>
           </Box>
           <Typography
-            gutterBottom
             variant="h5"
             component="div"
-            sx={{ mb: 2.5 }}
+            sx={{
+              mb: 2.5,
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+              overflow: 'hidden',
+            }}
           >
             {article.title}
           </Typography>
-          <Typography>{article.summary}</Typography>
+          <Typography>{shortSummary}</Typography>
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ padding: '10px 24px 24px' }}>
         <Button
-          href={`/article/:${article.id}`}
+          href={`/article/${article.id}`}
           size="small"
           endIcon={<ArrowForwardIcon />}
         >
