@@ -24,7 +24,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        maxWidth: 400,
+        width: 400,
         backgroundColor: colors.white,
         boxShadow: shadows.default,
       }}

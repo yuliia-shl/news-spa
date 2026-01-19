@@ -24,8 +24,17 @@ export interface ArticlesContextValue {
   total: number;
   loading: boolean;
   error: string | null;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
 }
 
 export interface ArticleCardProps {
   article: Article;
+}
+
+export interface GetArticlesParams {
+  limit: number;
+  offset: number;
+  title_contains_one?: string;
+  summary_contains_one?: string;
 }

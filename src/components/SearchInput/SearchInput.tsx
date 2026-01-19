@@ -3,8 +3,11 @@ import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
 import SearchIcon from '@mui/icons-material/Search';
 import { colors, shadows } from '../../theme/colors';
+import { useArticles } from '../../hooks/useArticles';
 
 const SearchInput = () => {
+  const { searchQuery, setSearchQuery } = useArticles();
+
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px', mb: 5 }}>
       <label htmlFor="outlined-search" className="semiBold">
@@ -15,6 +18,8 @@ const SearchInput = () => {
         placeholder="The most successful IT companies in 2020"
         variant="outlined"
         type="search"
+        value={searchQuery}
+        onChange={e => setSearchQuery(e.target.value)}
         sx={{
           width: '600px',
           '& .MuiOutlinedInput-root': {

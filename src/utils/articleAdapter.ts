@@ -1,3 +1,11 @@
+/**
+ * Transforms an article object from the API format (snake_case)
+ * to the application's internal format (camelCase).
+ * Also formats the publication date string.
+ * * @param api - The raw article object received from the Spaceflight News API.
+ * @returns A formatted Article object ready for use in UI components.
+ */
+
 import type { ApiArticle, Article } from '../types/article';
 import { format } from 'date-fns';
 
