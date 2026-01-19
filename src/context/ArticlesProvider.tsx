@@ -1,16 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getArticles } from '../api/services';
-import type { ApiArticle, Article } from '../types/article';
+import type { Article } from '../types/article';
 import { ArticlesContext } from '../hooks/useArticles';
-import { format } from 'date-fns';
-
-const adaptArticle = (api: ApiArticle): Article => ({
-  id: api.id,
-  title: api.title,
-  summary: api.summary,
-  imageUrl: api.image_url,
-  publishedAt: format(new Date(api.published_at), 'MMMM do, yyyy'),
-});
+import { adaptArticle } from '../utils/articleAdapter';
 
 export const ArticlesProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
