@@ -38,3 +38,8 @@ export interface GetArticlesParams {
   title_contains_one?: string;
   summary_contains_one?: string;
 }
+
+export interface HighlightTextProps {
+  text: string;
+  searchWords: string[];
+}

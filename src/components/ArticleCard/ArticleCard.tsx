@@ -11,12 +11,16 @@ import Box from '@mui/material/Box';
 import { colors, shadows } from '../../theme/colors';
 import { Link } from 'react-router-dom';
 import type { ArticleCardProps } from '../../types/article';
+import HighlightText from '../HighlightText/HighlightText';
+import { useArticles } from '../../hooks/useArticles';
 
 const ArticleCard = ({ article }: ArticleCardProps) => {
   const shortSummary =
     article.summary.length > 100
       ? article.summary.slice(0, 100) + '...'
       : article.summary;
+  const { searchQuery } = useArticles();
+  const searchWords = searchQuery.trim().split(/\s+/);
 
   return (
     <Card
@@ -72,9 +76,13 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
               overflow: 'hidden',
             }}
           >
-            {article.title}
+            {/* {article.title} */}
+            <HighlightText text={article.title} searchWords={searchWords} />
           </Typography>
-          <Typography>{shortSummary}</Typography>
+          {/* <Typography>{shortSummary}</Typography>       */}
+          <Typography>
+            <HighlightText text={shortSummary} searchWords={searchWords} />
+          </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions sx={{ padding: '10px 24px 24px' }}>
