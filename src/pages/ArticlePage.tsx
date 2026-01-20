@@ -1,7 +1,7 @@
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link, useLocation, useParams } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import type { Article } from '../types/article';
 import { getArticleById } from '../api/services';
 
@@ -11,8 +11,7 @@ const ArticlePage = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const location = useLocation();
-  const goBackLink = useRef(location.state ?? '/');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) return;
@@ -48,8 +47,7 @@ const ArticlePage = () => {
           <p className="articleDesc">{article.summary}</p>
         </div>
         <Button
-          component={Link}
-          to={goBackLink.current}
+          onClick={() => navigate(-1)}
           size="small"
           color="primary"
           startIcon={<ArrowBackIcon />}

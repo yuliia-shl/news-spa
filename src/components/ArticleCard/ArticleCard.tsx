@@ -86,7 +86,8 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
       </CardActionArea>
       <CardActions sx={{ padding: '10px 24px 24px' }}>
         <Button
-          href={`/article/${article.id}`}
+          component={Link}
+          to={`/article/${article.id}`}
           size="small"
           endIcon={<ArrowForwardIcon />}
           aria-label={`Read more about ${article.title}`}
