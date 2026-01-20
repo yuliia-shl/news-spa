@@ -10,7 +10,7 @@ const SearchInput = () => {
 
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', gap: '10px', mb: 5 }}>
-      <label htmlFor="outlined-search" className="semiBold">
+      <label htmlFor="outlined-search" className="bold">
         Filter by keywords
       </label>
       <TextField

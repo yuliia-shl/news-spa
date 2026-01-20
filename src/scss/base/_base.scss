@@ -1,4 +1,4 @@
-@use 'utils/vars' as *;
+@use '../utils/vars' as *;
 
 :root {
   --fontsource-display: swap;
@@ -54,7 +54,7 @@ img {
   height: auto;
 }
 
-.semiBold {
+.bold {
   font-weight: 700;
 }
 

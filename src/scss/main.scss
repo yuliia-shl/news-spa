@@ -1,0 +1,13 @@
+// @use 'reset';
+// @use 'utils/vars' as *;
+// @use 'utils/mixins';
+// @use 'main';
+// @use 'components/homePage';
+// @use 'components/articlesList';
+// @use 'components/articlePage';
+// @use 'components/notFoundPage';
+
+@use 'utils';
+@use 'base';
+@use 'components';
+@use 'pages';
