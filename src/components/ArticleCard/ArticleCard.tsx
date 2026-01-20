@@ -48,6 +48,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           height="140"
           image={article.imageUrl}
           alt="Article picture"
+          loading="lazy"
           sx={{ width: '100%', height: 217, objectFit: 'cover' }}
         />
         <CardContent
@@ -71,15 +72,13 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
             sx={{
               mb: 2.5,
               display: '-webkit-box',
-              WebkitLineClamp: 2,
+              WebkitLineClamp: 4,
               WebkitBoxOrient: 'vertical',
               overflow: 'hidden',
             }}
           >
-            {/* {article.title} */}
             <HighlightText text={article.title} searchWords={searchWords} />
           </Typography>
-          {/* <Typography>{shortSummary}</Typography>       */}
           <Typography>
             <HighlightText text={shortSummary} searchWords={searchWords} />
           </Typography>
@@ -90,6 +89,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           href={`/article/${article.id}`}
           size="small"
           endIcon={<ArrowForwardIcon />}
+          aria-label={`Read more about ${article.title}`}
         >
           Read more
         </Button>

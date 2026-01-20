@@ -4,14 +4,12 @@ import ArticlePage from './pages/ArticlePage';
 
 function App() {
   return (
-    <>
-      <div>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/article/:id" element={<ArticlePage />} />
-        </Routes>
-      </div>
-    </>
+    <main>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/article/:id" element={<ArticlePage />} />
+      </Routes>
+    </main>
   );
 }
 

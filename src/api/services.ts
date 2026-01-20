@@ -6,7 +6,7 @@ import type {
 } from '../types/article';
 import { adaptArticle } from '../utils/articleAdapter';
 
-export const getArticles = async (limit = 50, offset = 0, query = '') => {
+export const getArticles = async (limit = 30, offset = 0, query = '') => {
   const params: GetArticlesParams = { limit, offset };
 
   if (query) {

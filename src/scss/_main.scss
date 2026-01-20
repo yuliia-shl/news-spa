@@ -1,5 +1,9 @@
 @use 'utils/vars' as *;
 
+:root {
+  --fontsource-display: swap;
+}
+
 // Typography
 body {
   font-family: $font-family;
@@ -11,7 +15,6 @@ body {
 
 a {
   font-family: $font-family;
-  font-weight: 700;
   color: currentColor;
   text-decoration: none;
 }

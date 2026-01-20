@@ -40,6 +40,7 @@ const ArticlePage = () => {
         src={article.imageUrl}
         alt="Article picture"
         className="articleImg"
+        loading="lazy"
       />
       <div className="articleContent">
         <div className="articleContainer">
