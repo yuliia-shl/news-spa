@@ -1,0 +1,22 @@
+@use '../utils/vars' as *;
+
+.wrapper {
+  text-align: center;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 50px 75px 63px;
+}
+
+.title {
+  font-size: 96px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-bottom: 16px;
+  font-size: 20px;
+}
+
+.MuiButton-root.goToHome {
+  border: 1px solid $color-border;
+}
